@@ -164,7 +164,7 @@ From `complete_parameter_study.json`:
 
 ### Prerequisites
 - **PhysGaussian repository** cloned and set up (original repo)
-- **Trained model**: `../pillow2sofa_whitebg-trained/`
+- **Trained model**: `../pillow2sofa_whitebg-trained/` (Download the pillow2sofa_whitebg-trained model from the original repo and place it in a folder named 'pillow2sofa_whitebg-trained' at the same level as the PhysGaussian repo.)
 - **Python environment** with required dependencies (PyTorch, CUDA, etc.)
 
 ### Step 1: Setup PhysGaussian Repository
