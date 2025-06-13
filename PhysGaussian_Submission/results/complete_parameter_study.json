@@ -1,0 +1,492 @@
+{
+  "materials_tested": [
+    "metal",
+    "snow"
+  ],
+  "parameter_variations": [
+    {
+      "name": "n_grid_60",
+      "param": "n_grid",
+      "value": 60
+    },
+    {
+      "name": "n_grid_150",
+      "param": "n_grid",
+      "value": 150
+    },
+    {
+      "name": "substep_dt_2e-5",
+      "param": "substep_dt",
+      "value": 2e-05
+    },
+    {
+      "name": "substep_dt_5e-4",
+      "param": "substep_dt",
+      "value": 0.0005
+    },
+    {
+      "name": "damping_0.1",
+      "param": "grid_v_damping_scale",
+      "value": 0.1
+    },
+    {
+      "name": "damping_5.0",
+      "param": "grid_v_damping_scale",
+      "value": 5.0
+    },
+    {
+      "name": "softening_0.001",
+      "param": "softening",
+      "value": 0.001
+    },
+    {
+      "name": "softening_1.0",
+      "param": "softening",
+      "value": 1.0
+    }
+  ],
+  "results_by_material": {
+    "metal": {
+      "baseline_config": {
+        "opacity_threshold": 0.02,
+        "rotation_degree": [],
+        "rotation_axis": [],
+        "substep_dt": 0.0001,
+        "frame_dt": 0.02,
+        "frame_num": 300,
+        "E": 10000.0,
+        "nu": 0.3,
+        "n_grid": 100,
+        "material": "metal",
+        "grid_v_damping_scale": 1.1,
+        "softening": 0.1,
+        "density": 2000,
+        "g": [
+          0.0,
+          0,
+          -5.0
+        ],
+        "sim_area": [
+          -0.65,
+          0.65,
+          -0.6,
+          0.6,
+          -1,
+          1
+        ],
+        "particle_filling": {
+          "n_grid": 128,
+          "density_threshold": 40.0,
+          "search_threshold": 0.5,
+          "search_exclude_direction": 5,
+          "ray_cast_direction": 0,
+          "max_particles_num": 2000000,
+          "max_partciels_per_cell": 4,
+          "boundary": [
+            0.6,
+            1.4,
+            0.6,
+            1.4,
+            0.92,
+            1.72
+          ]
+        },
+        "boundary_conditions": [
+          {
+            "type": "bounding_box"
+          },
+          {
+            "type": "cuboid",
+            "point": [
+              1,
+              1,
+              0.5
+            ],
+            "size": [
+              1.0,
+              1.0,
+              0.05
+            ],
+            "velocity": [
+              0,
+              0,
+              0
+            ],
+            "start_time": 0,
+            "end_time": 1000.0,
+            "reset": 1
+          },
+          {
+            "type": "enforce_particle_translation",
+            "point": [
+              1,
+              1,
+              0.5
+            ],
+            "size": [
+              1,
+              1,
+              0.4
+            ],
+            "velocity": [
+              0,
+              0,
+              0
+            ],
+            "start_time": 0,
+            "end_time": 1000.0
+          },
+          {
+            "type": "cuboid",
+            "point": [
+              1,
+              1,
+              1.2
+            ],
+            "size": [
+              1.0,
+              1.0,
+              0.12
+            ],
+            "velocity": [
+              0,
+              0,
+              0
+            ],
+            "start_time": 0,
+            "end_time": 0.5
+          },
+          {
+            "type": "cuboid",
+            "point": [
+              1,
+              1,
+              1.45
+            ],
+            "size": [
+              1.0,
+              1.0,
+              0.1
+            ],
+            "velocity": [
+              0,
+              0,
+              0
+            ],
+            "start_time": 0.0,
+            "end_time": 1.0
+          }
+        ],
+        "mpm_space_vertical_upward_axis": [
+          0,
+          0,
+          1
+        ],
+        "mpm_space_viewpoint_center": [
+          1,
+          1,
+          1
+        ],
+        "default_camera_index": -1,
+        "show_hint": false,
+        "init_azimuthm": -90.0,
+        "init_elevation": 30.0,
+        "init_radius": 2.5,
+        "move_camera": true,
+        "delta_a": 0.5,
+        "delta_e": 0.0,
+        "delta_r": 0.0
+      },
+      "results_directories": {
+        "baseline": "part2_parameter_study/metal/baseline",
+        "n_grid_60": "part2_parameter_study/metal/n_grid_60",
+        "n_grid_150": "part2_parameter_study/metal/n_grid_150",
+        "substep_dt_2e-5": "part2_parameter_study/metal/substep_dt_2e-5",
+        "substep_dt_5e-4": "part2_parameter_study/metal/substep_dt_5e-4",
+        "damping_0.1": "part2_parameter_study/metal/damping_0.1",
+        "damping_5.0": "part2_parameter_study/metal/damping_5.0",
+        "softening_0.001": "part2_parameter_study/metal/softening_0.001",
+        "softening_1.0": "part2_parameter_study/metal/softening_1.0"
+      },
+      "psnr_comparisons": {
+        "n_grid_60": {
+          "parameter": "n_grid",
+          "baseline_value": 100,
+          "new_value": 60,
+          "mean_psnr": 21.38197801589966,
+          "material": "metal"
+        },
+        "n_grid_150": {
+          "parameter": "n_grid",
+          "baseline_value": 100,
+          "new_value": 150,
+          "mean_psnr": 24.241783224741617,
+          "material": "metal"
+        },
+        "substep_dt_2e-5": {
+          "parameter": "substep_dt",
+          "baseline_value": 0.0001,
+          "new_value": 2e-05,
+          "mean_psnr": 22.496696008046467,
+          "material": "metal"
+        },
+        "substep_dt_5e-4": {
+          "parameter": "substep_dt",
+          "baseline_value": 0.0001,
+          "new_value": 0.0005,
+          "mean_psnr": 21.014505627950033,
+          "material": "metal"
+        },
+        "damping_0.1": {
+          "parameter": "grid_v_damping_scale",
+          "baseline_value": 1.1,
+          "new_value": 0.1,
+          "mean_psnr": 16.46232660929362,
+          "material": "metal"
+        },
+        "damping_5.0": {
+          "parameter": "grid_v_damping_scale",
+          "baseline_value": 1.1,
+          "new_value": 5.0,
+          "mean_psnr": 71.06744887034098,
+          "material": "metal"
+        },
+        "softening_0.001": {
+          "parameter": "softening",
+          "baseline_value": 0.1,
+          "new_value": 0.001,
+          "mean_psnr": 70.79632844289144,
+          "material": "metal"
+        },
+        "softening_1.0": {
+          "parameter": "softening",
+          "baseline_value": 0.1,
+          "new_value": 1.0,
+          "mean_psnr": 70.9235344060262,
+          "material": "metal"
+        }
+      }
+    },
+    "snow": {
+      "baseline_config": {
+        "opacity_threshold": 0.02,
+        "rotation_degree": [],
+        "rotation_axis": [],
+        "substep_dt": 0.0001,
+        "frame_dt": 0.02,
+        "frame_num": 300,
+        "E": 10000.0,
+        "nu": 0.3,
+        "n_grid": 100,
+        "material": "snow",
+        "grid_v_damping_scale": 1.1,
+        "softening": 0.1,
+        "density": 2000,
+        "g": [
+          0.0,
+          0,
+          -5.0
+        ],
+        "sim_area": [
+          -0.65,
+          0.65,
+          -0.6,
+          0.6,
+          -1,
+          1
+        ],
+        "particle_filling": {
+          "n_grid": 128,
+          "density_threshold": 40.0,
+          "search_threshold": 0.5,
+          "search_exclude_direction": 5,
+          "ray_cast_direction": 0,
+          "max_particles_num": 2000000,
+          "max_partciels_per_cell": 4,
+          "boundary": [
+            0.6,
+            1.4,
+            0.6,
+            1.4,
+            0.92,
+            1.72
+          ]
+        },
+        "boundary_conditions": [
+          {
+            "type": "bounding_box"
+          },
+          {
+            "type": "cuboid",
+            "point": [
+              1,
+              1,
+              0.5
+            ],
+            "size": [
+              1.0,
+              1.0,
+              0.05
+            ],
+            "velocity": [
+              0,
+              0,
+              0
+            ],
+            "start_time": 0,
+            "end_time": 1000.0,
+            "reset": 1
+          },
+          {
+            "type": "enforce_particle_translation",
+            "point": [
+              1,
+              1,
+              0.5
+            ],
+            "size": [
+              1,
+              1,
+              0.4
+            ],
+            "velocity": [
+              0,
+              0,
+              0
+            ],
+            "start_time": 0,
+            "end_time": 1000.0
+          },
+          {
+            "type": "cuboid",
+            "point": [
+              1,
+              1,
+              1.2
+            ],
+            "size": [
+              1.0,
+              1.0,
+              0.12
+            ],
+            "velocity": [
+              0,
+              0,
+              0
+            ],
+            "start_time": 0,
+            "end_time": 0.5
+          },
+          {
+            "type": "cuboid",
+            "point": [
+              1,
+              1,
+              1.45
+            ],
+            "size": [
+              1.0,
+              1.0,
+              0.1
+            ],
+            "velocity": [
+              0,
+              0,
+              0
+            ],
+            "start_time": 0.0,
+            "end_time": 1.0
+          }
+        ],
+        "mpm_space_vertical_upward_axis": [
+          0,
+          0,
+          1
+        ],
+        "mpm_space_viewpoint_center": [
+          1,
+          1,
+          1
+        ],
+        "default_camera_index": -1,
+        "show_hint": false,
+        "init_azimuthm": -90.0,
+        "init_elevation": 30.0,
+        "init_radius": 2.5,
+        "move_camera": true,
+        "delta_a": 0.5,
+        "delta_e": 0.0,
+        "delta_r": 0.0
+      },
+      "results_directories": {
+        "baseline": "part2_parameter_study/snow/baseline",
+        "n_grid_60": "part2_parameter_study/snow/n_grid_60",
+        "n_grid_150": "part2_parameter_study/snow/n_grid_150",
+        "substep_dt_2e-5": "part2_parameter_study/snow/substep_dt_2e-5",
+        "substep_dt_5e-4": "part2_parameter_study/snow/substep_dt_5e-4",
+        "damping_0.1": "part2_parameter_study/snow/damping_0.1",
+        "damping_5.0": "part2_parameter_study/snow/damping_5.0",
+        "softening_0.001": "part2_parameter_study/snow/softening_0.001",
+        "softening_1.0": "part2_parameter_study/snow/softening_1.0"
+      },
+      "psnr_comparisons": {
+        "n_grid_60": {
+          "parameter": "n_grid",
+          "baseline_value": 100,
+          "new_value": 60,
+          "mean_psnr": 26.222260456085206,
+          "material": "snow"
+        },
+        "n_grid_150": {
+          "parameter": "n_grid",
+          "baseline_value": 100,
+          "new_value": 150,
+          "mean_psnr": 33.26959212621053,
+          "material": "snow"
+        },
+        "substep_dt_2e-5": {
+          "parameter": "substep_dt",
+          "baseline_value": 0.0001,
+          "new_value": 2e-05,
+          "mean_psnr": 27.126469605763752,
+          "material": "snow"
+        },
+        "substep_dt_5e-4": {
+          "parameter": "substep_dt",
+          "baseline_value": 0.0001,
+          "new_value": 0.0005,
+          "mean_psnr": 23.44884806950887,
+          "material": "snow"
+        },
+        "damping_0.1": {
+          "parameter": "grid_v_damping_scale",
+          "baseline_value": 1.1,
+          "new_value": 0.1,
+          "mean_psnr": 16.989102303187053,
+          "material": "snow"
+        },
+        "damping_5.0": {
+          "parameter": "grid_v_damping_scale",
+          "baseline_value": 1.1,
+          "new_value": 5.0,
+          "mean_psnr": 90.07059758504232,
+          "material": "snow"
+        },
+        "softening_0.001": {
+          "parameter": "softening",
+          "baseline_value": 0.1,
+          "new_value": 0.001,
+          "mean_psnr": 90.66754549662272,
+          "material": "snow"
+        },
+        "softening_1.0": {
+          "parameter": "softening",
+          "baseline_value": 0.1,
+          "new_value": 1.0,
+          "mean_psnr": 90.20496777852377,
+          "material": "snow"
+        }
+      }
+    }
+  }
+}
