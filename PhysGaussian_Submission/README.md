@@ -41,18 +41,6 @@ PhysGaussian_Submission/
     └── HOMEWORK_GUIDE.md             # Comprehensive homework guide
 ```
 
-## 🎯 Homework Parts Completed
-
-### **Part 1: Material Simulations**
-- ✅ Metal material simulation
-- ✅ Snow material simulation
-- ✅ Custom material configuration files
-
-### **Part 2: Parameter Studies with PSNR Analysis**
-- ✅ 4 MPM parameters tested: `n_grid`, `substep_dt`, `grid_v_damping_scale`, `softening`
-- ✅ Both metal and snow materials analyzed
-- ✅ PSNR comparison against baselines
-- ✅ Extreme parameter values for visible differences
 
 ## 🔧 Custom Code Description
 
@@ -81,8 +69,6 @@ python parameter_study.py --material both --output_dir part2_parameter_study
 **Purpose**: Enhanced PSNR evaluation with frame-range analysis.
 
 **Key Features**:
-- Multiple analysis modes: 'all', 'deformation', 'middle', 'recovery'
-- Focuses on active deformation frames for better sensitivity
 - Robust PSNR computation handling tensor contiguity issues
 - Detailed statistics (mean, min, max, std deviation)
 - Interpretive feedback and suggestions
@@ -92,7 +78,6 @@ python parameter_study.py --material both --output_dir part2_parameter_study
 python evaluate_psnr.py \
     --baseline_dir baseline_output \
     --modified_dir modified_output \
-    --analysis_mode middle \
     --output_file psnr_results.json
 ```
 
@@ -253,20 +238,6 @@ PhysGaussian/                           # Original cloned repository
 3. **Frame timing matters** - analyzing active deformation vs final state
 4. **Extreme parameter values** are needed for meaningful visual differences
 5. **Quantitative analysis (PSNR)** provides objective comparison metrics
-
-## 🎓 Homework Analysis Insights
-
-The results demonstrate:
-- ✅ Understanding of MPM parameter effects
-- ✅ Material-specific behavior differences  
-- ✅ Quantitative evaluation methodology
-- ✅ Recognition of parameter sensitivity ranges
-- ✅ Appropriate analysis techniques for physics simulations
-
-**PSNR Range Interpretation**:
-- 15-25: Excellent differences (achieved for damping and timestep parameters)
-- 25-35: Good differences (achieved for grid resolution)
-- 70-90: Minimal differences (extreme softening values)
 
 ## 🎯 **Results Analysis**
 
