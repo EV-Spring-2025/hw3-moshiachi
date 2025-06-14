@@ -35,10 +35,9 @@ PhysGaussian_Submission/
 │   ├── parameter_study.py            # Main parameter study automation
 │   ├── evaluate_psnr.py             # PSNR evaluation with frame analysis
 │   └── run_material_simulations.py  # Material simulation automation
-├── results/                           # Study results
-│   └── complete_parameter_study.json # Complete PSNR analysis results
-└── documentation/
-    └── HOMEWORK_GUIDE.md             # Comprehensive homework guide
+└── results/                           # Study results
+    ├── complete_parameter_study.json # Complete PSNR analysis results
+    └── videos
 ```
 
 
@@ -51,7 +50,6 @@ PhysGaussian_Submission/
 - Tests 8 parameter variations on both materials (16 total simulations)
 - Automatically runs baseline simulations
 - Computes PSNR for each variation vs baseline
-- Uses enhanced middle-frame analysis for better sensitivity
 - Saves comprehensive results in JSON format
 
 **Usage**:
@@ -67,8 +65,6 @@ python parameter_study.py --material both --output_dir part2_parameter_study
 
 ### 2. `evaluate_psnr.py`
 **Purpose**: Enhanced PSNR evaluation with frame-range analysis.
-
-
 
 **Usage**:
 ```bash
@@ -108,16 +104,16 @@ From `complete_parameter_study.json`:
 ### **Complete Results Table**:
 | Material | Parameter | Baseline | New Value | PSNR | Effect Level |
 |----------|-----------|----------|-----------|------|--------------|
-| Metal    | grid_v_damping_scale | 1.1 | 0.1 | **16.46** | 🔴 Excellent |
-| Snow     | grid_v_damping_scale | 1.1 | 0.1 | **16.99** | 🔴 Excellent |
-| Metal    | substep_dt | 1e-4 | 5e-4 | **21.01** | 🟠 Significant |
-| Metal    | n_grid | 100 | 60 | **21.38** | 🟠 Significant |
-| Metal    | substep_dt | 1e-4 | 2e-5 | **22.50** | 🟠 Significant |
-| Snow     | substep_dt | 1e-4 | 5e-4 | **23.45** | 🟠 Good |
-| Metal    | n_grid | 100 | 150 | **24.24** | 🟡 Good |
-| Snow     | n_grid | 100 | 60 | **26.22** | 🟡 Noticeable |
-| Snow     | substep_dt | 1e-4 | 2e-5 | **27.13** | 🟡 Noticeable |
-| Snow     | n_grid | 100 | 150 | **33.27** | 🟡 Subtle |
+| Metal    | grid_v_damping_scale | 1.1 | 0.1 | **16.46** | 🔴 Extreme |
+| Snow     | grid_v_damping_scale | 1.1 | 0.1 | **16.99** | 🔴 Extreme |
+| Metal    | substep_dt | 1e-4 | 5e-4 | **21.01** | 🟠 Major |
+| Metal    | n_grid | 100 | 60 | **21.38** | 🟠 Major |
+| Metal    | substep_dt | 1e-4 | 2e-5 | **22.50** | 🟠 Major |
+| Snow     | substep_dt | 1e-4 | 5e-4 | **23.45** | 🟠 Major |
+| Metal    | n_grid | 100 | 150 | **24.24** | 🟡 Moderate |
+| Snow     | n_grid | 100 | 60 | **26.22** | 🟡 Moderate |
+| Snow     | substep_dt | 1e-4 | 2e-5 | **27.13** | 🟡 Moderate |
+| Snow     | n_grid | 100 | 150 | **33.27** | 🟡 Moderate |
 | Metal    | softening | 0.1 | 0.001 | **70.80** | ⚪ Minimal |
 | Metal    | softening | 0.1 | 1.0 | **70.92** | ⚪ Minimal |
 | Metal    | grid_v_damping_scale | 1.1 | 5.0 | **71.07** | ⚪ Minimal |
@@ -125,12 +121,31 @@ From `complete_parameter_study.json`:
 | Snow     | softening | 0.1 | 1.0 | **90.20** | ⚪ Minimal |
 | Snow     | softening | 0.1 | 0.001 | **90.67** | ⚪ Minimal |
 
-### **Material-Specific Insights**:
-- **Metal is more sensitive** to parameter changes than snow (consistently lower PSNR)
-- **Grid damping reduction (0.1)** creates most dramatic visual differences in both materials
-- **Heavy damping (5.0) and extreme softening** have minimal visual impact (PSNR 70-90)
-- **Grid resolution and timestep changes** show clear parameter sensitivity (PSNR 20-35)
-- **Snow shows higher resistance** to extreme parameter changes (higher PSNR values)
+### **Key Findings**:
+
+1. **Parameter Sensitivity**
+   - Grid velocity damping has the most dramatic impact (PSNR ~16-17)
+   - Timestep and grid resolution changes show clear effects (PSNR 21-33)
+   - Softening parameter has surprisingly minimal visual impact (PSNR 70-90)
+
+2. **Material-Specific Behavior**
+   - Metal consistently shows higher sensitivity to parameter changes
+   - Snow demonstrates more stability across parameter variations
+   - Both materials react strongly to reduced grid damping (0.1)
+
+3. **PSNR Analysis**
+   - Extreme differences: PSNR 16-17 (reduced grid damping)
+   - Major differences: PSNR 21-24 (timestep/grid variations)
+   - Moderate differences: PSNR 24-33 (fine parameter adjustments)
+   - Minimal differences: PSNR 70-90 (softening/high damping)
+
+4. **Practical Implications**
+   - Grid velocity damping is crucial for visual dynamics
+   - Metal simulations require more careful parameter tuning
+   - Snow behavior is more robust to parameter changes
+   - Extreme parameter values needed for meaningful differences
+
+These results demonstrate the complex relationship between MPM parameters and material behavior, highlighting the importance of parameter selection in achieving desired simulation effects.
 
 ## 🚀 How to Reproduce Results
 
@@ -202,26 +217,6 @@ PhysGaussian/                           # Original cloned repository
 └── part2_parameter_study/              # ← Generated by scripts
     └── complete_parameter_study.json
 ```
-
-## 💡 Key Learning Outcomes
-
-1. **MPM parameters have different effects** on metal vs snow materials
-2. **Grid velocity damping** is the most visually impactful parameter
-3. **Frame timing matters** - analyzing active deformation vs final state
-4. **Extreme parameter values** are needed for meaningful visual differences
-5. **Quantitative analysis (PSNR)** provides objective comparison metrics
-
-## 🎯 **Results Analysis**
-
-**Achieved PSNR Ranges**:
-- 🔴 **16-17**: Excellent differences (grid_v_damping_scale = 0.1)
-- 🟠 **21-24**: Significant differences (substep_dt variations, n_grid = 60)
-- 🟡 **26-33**: Good to noticeable differences (n_grid variations, fine timesteps)
-- ⚪ **70-90**: Minimal differences (extreme softening, heavy damping)
-
-**Key Finding**: Grid velocity damping reduction creates the most dramatic visual differences, while extreme softening parameters have surprisingly little visual impact.
-
-This comprehensive analysis provides both quantitative metrics and qualitative insights into MPM simulation parameter effects on different material types. 
 
 ## 🎥 Simulation Videos
 
