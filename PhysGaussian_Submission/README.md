@@ -225,6 +225,9 @@ This comprehensive analysis provides both quantitative metrics and qualitative i
 
 ## 🎥 Simulation Videos
 
+### All Results
+- [Watch all simulation results on YouTube](https://youtube.com/shorts/SHCIo19-9aA?feature=share)
+
 ### Metal Simulations
 - Baseline: [results/metal_baseline.mp4](results/metal_baseline.mp4)
 - n_grid=60: [results/metal_n_grid_60.mp4](results/metal_n_grid_60.mp4)
