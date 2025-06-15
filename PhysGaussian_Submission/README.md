@@ -2,6 +2,8 @@
 
 This submission contains all custom code, configurations, and results for the PhysGaussian homework assignment covering material simulations and MPM parameter studies.
 
+##### ref: Collaborate with Cㄋursor
+
 ## 🚨 **IMPORTANT: File Placement Instructions**
 
 **These files are designed to work with the original PhysGaussian repository and should be placed in the PhysGaussian folder after cloning.**
