@@ -2,7 +2,7 @@
 
 This submission contains all custom code, configurations, and results for the PhysGaussian homework assignment covering material simulations and MPM parameter studies.
 
-##### ref: Collaborate with Cㄋursor
+##### ref: Collaborate with Cursor
 
 ## 🚨 **IMPORTANT: File Placement Instructions**
 
