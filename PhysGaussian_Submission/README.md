@@ -102,24 +102,24 @@ Both configs use identical base parameters (E=1e4, density=2000, nu=0.3) to isol
 From `complete_parameter_study.json`:
 
 ### **Complete Results Table**:
-| Material | Parameter | Baseline | New Value | PSNR | Effect Level |
-|----------|-----------|----------|-----------|------|--------------|
-| Metal    | grid_v_damping_scale | 1.1 | 0.1 | **16.46** | 🔴 Extreme |
-| Snow     | grid_v_damping_scale | 1.1 | 0.1 | **16.99** | 🔴 Extreme |
-| Metal    | substep_dt | 1e-4 | 5e-4 | **21.01** | 🟠 Major |
-| Metal    | n_grid | 100 | 60 | **21.38** | 🟠 Major |
-| Metal    | substep_dt | 1e-4 | 2e-5 | **22.50** | 🟠 Major |
-| Snow     | substep_dt | 1e-4 | 5e-4 | **23.45** | 🟠 Major |
-| Metal    | n_grid | 100 | 150 | **24.24** | 🟡 Moderate |
-| Snow     | n_grid | 100 | 60 | **26.22** | 🟡 Moderate |
-| Snow     | substep_dt | 1e-4 | 2e-5 | **27.13** | 🟡 Moderate |
-| Snow     | n_grid | 100 | 150 | **33.27** | 🟡 Moderate |
-| Metal    | softening | 0.1 | 0.001 | **70.80** | ⚪ Minimal |
-| Metal    | softening | 0.1 | 1.0 | **70.92** | ⚪ Minimal |
-| Metal    | grid_v_damping_scale | 1.1 | 5.0 | **71.07** | ⚪ Minimal |
-| Snow     | grid_v_damping_scale | 1.1 | 5.0 | **90.07** | ⚪ Minimal |
-| Snow     | softening | 0.1 | 1.0 | **90.20** | ⚪ Minimal |
-| Snow     | softening | 0.1 | 0.001 | **90.67** | ⚪ Minimal |
+| Material | Parameter | Baseline | New Value | PSNR | Effect Level | Observation |
+|----------|-----------|----------|-----------|------|--------------|-------------|
+| Metal    | grid_v_damping_scale | 1.1 | 0.1 | **16.46** | 🔴 Extreme | Objects stop directly on top |
+| Snow     | grid_v_damping_scale | 1.1 | 0.1 | **16.99** | 🔴 Extreme | Objects stop directly on top |
+| Metal    | substep_dt | 1e-4 | 5e-4 | **21.01** | 🟠 Major | Metal becomes more fluid, easier to blend |
+| Metal    | n_grid | 100 | 60 | **21.38** | 🟠 Major | Objects blend less, and the large pillow doesn't fall to the bottom, pillows don't touch, seems less physically accurate |
+| Metal    | substep_dt | 1e-4 | 2e-5 | **22.50** | 🟠 Major | Metal becomes more viscous, blending significantly reduced |
+| Snow     | substep_dt | 1e-4 | 5e-4 | **23.45** | 🟠 Major | Small pillow disappears into the large pillow upon melting |
+| Metal    | n_grid | 100 | 150 | **24.24** | 🟡 Moderate | Metal blending increases, overall physics feels more like water |
+| Snow     | n_grid | 100 | 60 | **26.22** | 🟡 Moderate | Snow melts slower, and the large pillow turns into a puddle before landing, seems less physically accurate |
+| Snow     | substep_dt | 1e-4 | 2e-5 | **27.13** | 🟡 Moderate | Snow feels more solid, small pillow pattern still visible |
+| Snow     | n_grid | 100 | 150 | **33.27** | 🟡 Moderate | Small pillow disappears into the large pillow upon melting, and there are unexplained vertical lines in the scene |
+| Metal    | softening | 0.1 | 0.001 | **70.80** | ⚪ Minimal | Similar to original |
+| Metal    | softening | 0.1 | 1.0 | **70.92** | ⚪ Minimal | Similar to original |
+| Metal    | grid_v_damping_scale | 1.1 | 5.0 | **71.07** | ⚪ Minimal | Similar to original |
+| Snow     | grid_v_damping_scale | 1.1 | 5.0 | **90.07** | ⚪ Minimal | Similar to original |
+| Snow     | softening | 0.1 | 1.0 | **90.20** | ⚪ Minimal | Similar to original |
+| Snow     | softening | 0.1 | 0.001 | **90.67** | ⚪ Minimal | Similar to original |
 
 ### **Key Findings**:
 
